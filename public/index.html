@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro Ing-Sal Hospital</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Registro Personal Médico</h1>
+      <!-- Formulario para registrar personal médico -->
+      <form>
+        <legend><strong>Registro Personal</strong></legend>
+        <br />
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Nombre del empleado"
+        />
+        <br />
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          placeholder="Apellido del empleado"
+        />
+        <br />
+        <input
+          type="text"
+          id="occupation"
+          name="occupation"
+          placeholder="Cargo"
+        />
+        <br />
+        <br />
+        <div id="employee-message"></div>
+        <br />
+        <button type="button" id="button-employee">Agregar empleado</button>
+      </form>
+      <br />
+      <!-- Formulario para registrar fecha y hora de ingresos y salidas del personal -->
+      <form>
+        <legend><strong>Registro Ingreso/Salida</strong></legend>
+        <br />
+        <select id="select-employee" name="select-employee"></select>
+        <br />
+        <br />
+        <label for="date-time-entry">Fecha y hora de ingreso</label>
+        <br />
+        <input type="datetime-local" id="date-time-entry" name="ingreso" />
+        <br />
+        <label for="date-time-exit">Fecha y hora de salida</label>
+        <br />
+        <input type="datetime-local" id="date-time-exit" name="salida" />
+        <br />
+        <br />
+        <div id="date-time-message"></div>
+        <br />
+        <button type="button" id="button-add-date-time">Agregar Fecha</button>
+      </form>
+      <br />
+      <!-- Tablas para mostrar todos los datos -->
+      <table id="employee-table">
+        <caption>
+          Personal médico
+        </caption>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Cargo</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <br />
+      <div id="delete-message"></div>
+      <br>
+      <table id="date-time-table">
+        <caption>
+          Fecha y hora de ingresos y salidas
+        </caption>
+        <thead>
+          <tr>
+            <th>Empleado</th>
+            <th>Fecha y hora de ingreso</th>
+            <th>Fecha y hora de salida</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
