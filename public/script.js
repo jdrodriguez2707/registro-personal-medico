@@ -46,6 +46,7 @@ document.getElementById("button-add-date-time").addEventListener("click", () => 
   document.getElementById("date-time-exit").value = "";
 });
 
+// Enviar los datos del formulario al servidor
 async function postUserData(endpoint, userData) {
   try {
     const response = await fetch(endpoint, {
@@ -145,6 +146,7 @@ async function populateDateTimeTable() {
   });
 }
 
+// Eliminar un empleado de la base de datos por su id
 async function deleteEmployee(employeeId) {
   try {
     const response = await fetch(`/deleteEmployee/${employeeId}`, {

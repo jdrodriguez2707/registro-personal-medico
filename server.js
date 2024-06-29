@@ -137,6 +137,8 @@ app.get("/getDateTime", (req, res) => {
       personal_medico p 
     ON 
       r.id_empleado = p.id
+    ORDER BY 
+      r.fecha_hora_ingreso DESC
   `;
   connection.query(query, (error, results) => {
     if (error) {
