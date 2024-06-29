@@ -16,15 +16,19 @@ document.getElementById("button-employee").addEventListener("click", () => {
   });
 
   // Limpiar los campos del formulario después de enviar los datos al servidor
-  document.getElementById("username").value = "";
-  document.getElementById("lastname").value = "";
-  document.getElementById("occupation").value = "";
+  if (usernameInput && lastnameInput && occupationInput) {
+    document.getElementById("username").value = "";
+    document.getElementById("lastname").value = "";
+    document.getElementById("occupation").value = "";
+  }
 });
 
 document.getElementById("button-add-date-time").addEventListener("click", () => {
   const employeeIdSelect = document.getElementById("select-employee")?.value;
   const dateTimeEntry = document.getElementById("date-time-entry")?.value;
   const dateTimeExit = document.getElementById("date-time-exit")?.value;
+
+  // Formatear la fecha y hora para enviar al servidor para que conincida con el formato de la base de datos
   const formattedDateTimeEntry = dateTimeEntry.replace("T", " ");
   const formattedDateTimeExit = dateTimeExit.replace("T", " ");
 
@@ -41,9 +45,11 @@ document.getElementById("button-add-date-time").addEventListener("click", () => 
   });
 
   // Limpiar los campos del formulario
-  document.getElementById("select-employee").value = "0";
-  document.getElementById("date-time-entry").value = "";
-  document.getElementById("date-time-exit").value = "";
+  if (employeeIdSelect && employeeIdSelect !== "0" && dateTimeEntry && dateTimeExit) {
+    document.getElementById("select-employee").value = "0";
+    document.getElementById("date-time-entry").value = "";
+    document.getElementById("date-time-exit").value = "";
+  }
 });
 
 // Enviar los datos del formulario al servidor

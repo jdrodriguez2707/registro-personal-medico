@@ -101,7 +101,7 @@ app.post("/addDateTime", (req, res) => {
   // console.log("Datos recibidos:", employeeId, entry, exit);
 
   // Validamos que los datos no estén vacíos
-  if (!employeeId || !entry || !exit) {
+  if (!employeeId || employeeId === "0" || !entry || !exit) {
     return res.status(400).json({ message: "Los campos son requeridos" });
   }
 
