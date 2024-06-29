@@ -19,8 +19,8 @@ app.use(json());
 // Conexión a la base de datos
 const connection = createConnection({
   host: "localhost",
-  user: "phpmyadmin",
-  password: "frosty2707",
+  user: "root",
+  password: "",
   database: "registro_personal_medico",
 });
 
