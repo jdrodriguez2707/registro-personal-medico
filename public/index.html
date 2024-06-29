@@ -4,48 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Registro Ing-Sal Hospital</title>
   </head>
   <body>
     <div class="container">
       <h1>Registro Personal Médico</h1>
       <!-- Formulario para registrar personal médico -->
-      <form>
-        <legend><strong>Registro Personal</strong></legend>
-        <br />
-        <input
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Nombre del empleado"
-        />
-        <input
-          type="text"
-          id="lastname"
-          name="lastname"
-          placeholder="Apellido del empleado"
-        />
-        <input
-          type="text"
-          id="occupation"
-          name="occupation"
-          placeholder="Cargo"
-        />
-        <div id="employee-message"></div>
-        <button type="button" id="button-employee">Agregar empleado</button>
-      </form>
-      <!-- Formulario para registrar fecha y hora de ingresos y salidas del personal -->
-      <form>
-        <legend><strong>Registro Ingreso/Salida</strong></legend>
-        <select id="select-employee" name="select-employee"></select>
-        <label for="date-time-entry">Fecha y hora de ingreso</label>
-        <input type="datetime-local" id="date-time-entry" name="ingreso" />
-        <label for="date-time-exit">Fecha y hora de salida</label>
-        <input type="datetime-local" id="date-time-exit" name="salida" />
-
-        <div id="date-time-message"></div>
-        <button type="button" id="button-add-date-time">Agregar Fecha</button>
-      </form>
+      <div class="form-content">
+        <form class="personal-register">
+          <legend>Registro Personal</legend>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Nombre del empleado"
+          />
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            placeholder="Apellido del empleado"
+          />
+          <input
+            type="text"
+            id="occupation"
+            name="occupation"
+            placeholder="Cargo"
+          />
+          <div id="employee-message"></div>
+          <button type="button" id="button-employee">Agregar empleado</button>
+        </form>
+        <!-- Formulario para registrar fecha y hora de ingresos y salidas del personal -->
+        <form>
+          <legend>Registro Ingreso/Salida</legend>
+          <select id="select-employee" name="select-employee"></select>
+          <label for="date-time-entry">Fecha y hora de ingreso</label>
+          <input type="datetime-local" id="date-time-entry" name="ingreso"/>
+          <label for="date-time-exit">Fecha y hora de salida</label>
+          <input type="datetime-local" id="date-time-exit" name="salida" />
+  
+          <div id="date-time-message"></div>
+          <button type="button" id="button-add-date-time">Agregar Fecha</button>
+        </form>
+      </div>
       <!-- Tablas para mostrar todos los datos -->
       <table id="employee-table">
         <caption>
@@ -61,8 +65,8 @@
         <tbody></tbody>
       </table>
 
-      <div id="delete-message"></div>
-      
+      <div id="delete-message" class="delete-message"></div>
+
       <table id="date-time-table">
         <caption>
           Fecha y hora de ingresos y salidas
