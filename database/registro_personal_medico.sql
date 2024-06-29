@@ -113,8 +113,8 @@ ALTER TABLE `registro_ingresos_salidas`
 --
 -- Constraints for table `registro_ingresos_salidas`
 --
-ALTER TABLE `registro_ingresos_salidas`
-  ADD CONSTRAINT `registro_ingresos_salidas_ibfk_1` FOREIGN KEY (`id_empleado`) REFERENCES `personal_medico` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+-- ALTER TABLE `registro_ingresos_salidas`
+--  ADD CONSTRAINT `registro_ingresos_salidas_ibfk_1` FOREIGN KEY (`id_empleado`) REFERENCES `personal_medico` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
