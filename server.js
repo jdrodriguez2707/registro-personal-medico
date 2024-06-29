@@ -60,7 +60,7 @@ app.post("/addEmployee", (req, res) => {
 // Crear un endpoint para obtener los empleados de la base de datos
 app.get("/getEmployees", (req, res) => {
   // Hacemos una consulta a la base de datos para obtener todos los empleados
-  connection.query("SELECT * FROM personal_medico", (error, results) => {
+  connection.query("SELECT * FROM personal_medico WHERE estado = 'activo'", (error, results) => {
     if (error) {
       return res
         .status(500)
@@ -79,9 +79,9 @@ app.delete("/deleteEmployee/:id", (req, res) => {
     return res.status(400).json({ message: "El id es requerido" });
   }
 
-  // Eliminamos el empleado de la base de datos
+  // Crea una consulta para actualizar el estado del empleado a inactivo
   connection.query(
-    "DELETE FROM personal_medico WHERE id = ?",
+    "UPDATE personal_medico SET estado = 'inactivo' WHERE id = ?",
     [id],
     (error, results) => {
       if (error) {
