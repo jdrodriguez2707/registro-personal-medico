@@ -9,10 +9,6 @@ document.getElementById("button-employee").addEventListener("click", () => {
     username: usernameInput,
     lastname: lastnameInput,
     occupation: occupationInput,
-  }).then(() => {
-    // Llenar el select y la tabla con los datos de la base de datos
-    populateEmployeeSelect();
-    populateEmployeeTable();
   });
 
   // Limpiar los campos del formulario después de enviar los datos al servidor
@@ -39,9 +35,6 @@ document.getElementById("button-add-date-time").addEventListener("click", () => 
     employeeId: employeeIdSelect,
     entry: formattedDateTimeEntry,
     exit: formattedDateTimeExit,
-  }).then(() => {
-    // Llenar la tabla con los datos de la base de datos después de enviar los datos al servidor
-    populateDateTimeTable();
   });
 
   // Limpiar los campos del formulario
@@ -75,6 +68,16 @@ async function postUserData(endpoint, userData) {
     setTimeout(() => {
       message.innerText = "";
     }, 3000);
+
+    // Actualizar el select y las tablas después de agregar un empleado o un registro de fecha y hora
+    if (endpoint === "/addEmployee") {
+      await Promise.all([
+        populateEmployeeSelect(),
+        populateEmployeeTable()
+      ]);
+    } else if (endpoint === "/addDateTime") {
+      await populateDateTimeTable();
+    }
 
     // console.log(data?.message);
   } catch (error) {
@@ -174,9 +177,11 @@ async function deleteEmployee(employeeId) {
     // console.log(data.message);
 
     // Actualizar el select y las tablas después de eliminar un empleado
-    populateEmployeeSelect();
-    populateEmployeeTable();
-    populateDateTimeTable();
+    await Promise.all([
+      populateEmployeeSelect(), 
+      populateEmployeeTable(), 
+      populateDateTimeTable()
+    ]);
   } catch (error) {
     console.error("Error al eliminar empleado:", error);
   }
